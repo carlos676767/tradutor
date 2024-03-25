@@ -1,13 +1,40 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="src/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Página com seleção de idioma" />
+  <meta name="keywords" content="SEO, HTML, select, idioma" />
+  <title>Seleção de Idioma</title>
+</head>
+
+<body>
+  <main>
+    <div class="filha">
+      <div class="grid-container">
+        <div class="grid-item">
+          <select name="select" id="select1">
+            <option value="">Selecionar Idioma</option>
+            <option value="en">Inglês</option>
+            <option value="pt-br">Português</option>
+          </select>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div class="grid-item">
+          <select name="select" id="select2">
+            <option value="">Selecionar Idioma</option>
+            <option value="en">Inglês</option>
+            <option value="pt-br">Português</option>
+          </select>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+      </div>
+    </div>
+</main>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
