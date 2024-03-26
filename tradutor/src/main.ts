@@ -9,10 +9,18 @@ const idiomaOriginal = () => {
   selectIdiomaPrincipal.addEventListener("change", () => {
     const options = selectIdiomaPrincipal.options;
     if (options[1].selected) {
-      alert("gay");
+     armazenarIidomaOriginal = "en";
+    }else if (options[2].selected) {
+      armazenarIidomaOriginal = "es"; 
+    }else if (options[3].selected) {
+      armazenarIidomaOriginal = "pt-BR";
+    }else if (options[4].selected) {
+      armazenarIidomaOriginal = "ru"
     }
   });
 };
+
+
 
 const buscarIdiomas = async (idiomaPrincipal: string, idiomaTraduzido:string)  => {
   try {
@@ -30,8 +38,8 @@ const buscarIdiomas = async (idiomaPrincipal: string, idiomaTraduzido:string)  =
   }
 }
 
-
-buscarIdiomas("en", "pt")
+idiomaOriginal();
+buscarIdiomas(armazenarIidomaOriginal, "pt")
 
 
 
