@@ -73,6 +73,7 @@ const mensasagemBotao = (traducao: string) => {
   speechSynthesis.speak(mensagem);
 }
 
+
 const button = document.querySelector("button") as HTMLButtonElement
 button.addEventListener("click", () => {
   buscarIdiomas()
