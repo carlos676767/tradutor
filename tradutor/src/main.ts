@@ -1,4 +1,7 @@
 
+
+
+
 let idiomaPrincipal:string
 const selecionarIdiomaPrincipal = () => {
   const selectIdiomaPrincipal = document.getElementById("selectIdiomaPrincipal") as HTMLSelectElement
@@ -11,7 +14,7 @@ const selecionarIdiomaPrincipal = () => {
     }else if (options[3].selected) {
       idiomaPrincipal = "ru"
     }else{
-      idiomaPrincipal = "ptbr"
+      idiomaPrincipal = "pt-br"
     }
   })
 }
@@ -30,7 +33,7 @@ const funcaoIidomaDestinatrio = () => {
     }else if (options[3].selected) {
       idiomaDestinatario = "ru"
     }else{
-      idiomaDestinatario = "ptbr"
+      idiomaDestinatario = "pt-br"
     }
   })
 }
@@ -38,24 +41,37 @@ const funcaoIidomaDestinatrio = () => {
 
 
 selecionarIdiomaPrincipal();
-funcaoIidomaDestinatrio()
+funcaoIidomaDestinatrio();
 
 const buscarIdiomas = async ()  => {
+  const textNeareaIdiomaPrincipal = document.getElementById("idiomaPrincipal") as HTMLTextAreaElement
   try {
     console.log("buscando")
-    const response = await fetch(`https://api.mymemory.translated.net/get?q=ola mundo&langpair=${idiomaPrincipal}|${idiomaDestinatario}`,{
+    const response = await fetch(`https://api.mymemory.translated.net/get?q=${textNeareaIdiomaPrincipal.value}&langpair=${idiomaPrincipal}|${idiomaDestinatario}`,{
       method: "POST",
     })
     const data = await response.json()
     console.log("dados encontrados");
     const {responseData } = data
-    console.log(responseData.translatedText);
+    exibirTextoIdiomaTraduzido(responseData.translatedText)
+    mensasagemBotao(responseData.translatedText)
   } catch (error) {
     console.log(error); 
   }
 }
 
 
+const exibirTextoIdiomaTraduzido = (traducao: string) => {
+  const textNeareaIdiomaSecundario = document.getElementById("idiomaTraduzido") as HTMLTextAreaElement
+  textNeareaIdiomaSecundario.innerHTML = traducao
+}
+
+const mensasagemBotao = (traducao: string) => {
+  const mensagem = new SpeechSynthesisUtterance();
+  mensagem.text = traducao
+  mensagem.lang = idiomaDestinatario
+  speechSynthesis.speak(mensagem);
+}
 
 const button = document.querySelector("button") as HTMLButtonElement
 button.addEventListener("click", () => {
