@@ -20,9 +20,21 @@ main{
     display: flex;
     height: 100vh;
     justify-content: center;
+    align-items: center;
 }
 
 select{
     width: 100%;
+}
 
+textarea{
+    outline: none;
+}
+@media(max-width: 768px){
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        
+    }
+    
 }
