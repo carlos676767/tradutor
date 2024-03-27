@@ -14,8 +14,10 @@ const selecionarIdiomaPrincipal = () => {
       idiomaPrincipal = "es"
     }else if (options[3].selected) {
       idiomaPrincipal = "ru"
-    }else{
+    }else if(options[4].selected){
       idiomaPrincipal = "pt-br"
+    }else if (options[5].selected) {
+      idiomaPrincipal = "AR"
     }
   })
 }
@@ -34,8 +36,10 @@ const funcaoIidomaDestinatrio = () => {
       idiomaDestinatario = "es"
     }else if (options2[3].selected) {
       idiomaDestinatario = "ru"
-    }else{
+    }else if(options2[4].selected){
       idiomaDestinatario = "pt-br"
+    }else if (options2[5]) {
+      idiomaDestinatario = "AR"
     }
   })
 }
