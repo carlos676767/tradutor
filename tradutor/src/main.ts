@@ -18,6 +18,8 @@ const selecionarIdiomaPrincipal = () => {
       idiomaPrincipal = "pt-br"
     }else if (options[5].selected) {
       idiomaPrincipal = "AR"
+    }else if (options[6].selected) {
+      idiomaPrincipal = "fr"
     }
   })
 }
@@ -38,11 +40,15 @@ const funcaoIidomaDestinatrio = () => {
       idiomaDestinatario = "ru"
     }else if(options2[4].selected){
       idiomaDestinatario = "pt-br"
-    }else if (options2[5]) {
+    }else if (options2[5].selected) {
+      idiomaDestinatario = "fr"
+    }else if (options2[6].selected) {
       idiomaDestinatario = "AR"
     }
   })
 }
+
+
 
 
 
@@ -84,6 +90,8 @@ const buscarIdiomas = async ()  => {
       const {responseData } = data
       exibirTextoIdiomaTraduzido(responseData.translatedText)
       mensasagemBotao(responseData.translatedText)
+      console.log(idiomaDestinatario);
+      
     } catch (error) {
       console.log(error); 
     }
