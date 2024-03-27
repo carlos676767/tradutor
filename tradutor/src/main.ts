@@ -20,6 +20,8 @@ const selecionarIdiomaPrincipal = () => {
       idiomaPrincipal = "AR"
     }else if (options[6].selected) {
       idiomaPrincipal = "fr"
+    }else {
+      idiomaPrincipal = "zh"
     }
   })
 }
@@ -44,12 +46,11 @@ const funcaoIidomaDestinatrio = () => {
       idiomaDestinatario = "fr"
     }else if (options2[6].selected) {
       idiomaDestinatario = "AR"
+    }else{
+      idiomaDestinatario = "zh"
     }
   })
 }
-
-
-
 
 
 selecionarIdiomaPrincipal();
@@ -113,7 +114,6 @@ const mensasagemBotao = (traducao: string) => {
   mensagem.lang = idiomaDestinatario
   speechSynthesis.speak(mensagem);
 }
-
 
 const button = document.querySelector("button") as HTMLButtonElement
 button.addEventListener("click", () => {
