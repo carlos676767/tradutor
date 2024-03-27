@@ -1,4 +1,5 @@
 
+import Swal from 'sweetalert2';
 
 
 
@@ -49,20 +50,42 @@ const pegarValorDigitado = () => {
   return textNeareaIdiomaPrincipal.value
 }
 
+
+const verificarValor = (valor: string) => {
+  return valor === ""
+}
+
+const valorVaio = () => {
+  Swal.fire({
+    title: 'Erro!',
+    text: 'Por favor, preencha todos os campos obrigatórios.',
+    icon: 'error',
+    confirmButtonText: 'OK'
+  });
+  
+}
+
+
 const buscarIdiomas = async ()  => {
-  try {
-    console.log("buscando")
-    const response = await fetch(`https://api.mymemory.translated.net/get?q=${pegarValorDigitado()}&langpair=${idiomaPrincipal}|${idiomaDestinatario}`,{
-      method: "POST",
-    })
-    const data = await response.json()
-    console.log("dados encontrados");
-    const {responseData } = data
-    exibirTextoIdiomaTraduzido(responseData.translatedText)
-    mensasagemBotao(responseData.translatedText)
-  } catch (error) {
-    console.log(error); 
+  if (verificarValor(pegarValorDigitado())) {
+    valorVaio()
+  }else{
+    try {
+      console.log("buscando")
+      const response = await fetch(`https://api.mymemory.translated.net/get?q=${pegarValorDigitado()}&langpair=${idiomaPrincipal}|${idiomaDestinatario}`,{
+        method: "POST",
+      })
+      const data = await response.json()
+      console.log("dados encontrados");
+      const {responseData } = data
+      exibirTextoIdiomaTraduzido(responseData.translatedText)
+      mensasagemBotao(responseData.translatedText)
+    } catch (error) {
+      console.log(error); 
+    }
+    
   }
+
   
 }
 
