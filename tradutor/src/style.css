@@ -6,8 +6,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-radius: 5px;
- 
-
+    column-gap: 3px;
 }
 
 body{
@@ -25,10 +24,15 @@ body{
 main{
     display: flex;
     height: 100vh;
+    gap: 5px;
     justify-content: center;
     align-items: center;
 }
-
+.filha{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 select{
     width: 100%;
 }
